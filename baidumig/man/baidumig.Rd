@@ -2,10 +2,10 @@
 \alias{mig}
 \title{baidumig}
 \usage{
-cityrank(city,direction,date)
+cityrank(city,direction,riqi)
   city：为爬取的城市名称，名称完整包含‘市’，比如‘深圳市’
   direcion： 为迁入迁出方向，可选 'in' 或 'out'
-  date： 为日期，格式为20200203 这种纯数字型
+  riqi： 为日期，格式为20200203 这种纯数字型
 函数返回结果为数据框
 
 migscale(city,direction)
