@@ -6,7 +6,7 @@ cityrank=function(city,direction,riqi){
   u1='http://huiyan.baidu.com/migration/cityrank.json?dt=city&id='
   u2='&type=move_'
   u3='&date='
-  code=citycode$city_code[citycode$city==city] %>% .[1] %>% as.numeric
+  code=citycode$city_code[citycode$city==city] %>% .[1] %>% as.integer
   url=paste(u1,code,u2,direction,u3,riqi,sep = '')
   p1=fromJSON(url) %>% .[3] %>% as.data.frame()
   names(p1)=c('city_name','province_name','ratio')
@@ -20,7 +20,7 @@ migscale=function(city,direction){
   require(dplyr)
   u1='http://huiyan.baidu.com/migration/historycurve.jsonp?dt=city&id='
   u2='&type=move_'
-  code=citycode$city_code[citycode$city==city] %>% .[1] %>% as.numeric #提取城市代码
+  code=citycode$city_code[citycode$city==city] %>% .[1] %>% as.integer #提取城市代码
   url=paste(u1,code,u2,direction,sep = '')
   tt=readLines(url)[2]
   tt2=substr(tt,4,nchar(tt)-1)#以上三行处理fromjson不能读取的问题
