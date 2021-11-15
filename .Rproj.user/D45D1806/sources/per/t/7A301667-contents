@@ -1,5 +1,5 @@
 
-#ÅÀÈ¡³ÇÊĞÇ¨ÈëÇ¨³ö±ÈÀı
+#çˆ¬å–åŸå¸‚è¿å…¥è¿å‡ºæ¯”ä¾‹
 cityrank=function(city,direction,riqi){
   require(jsonlite)
   require(magrittr)
@@ -13,17 +13,17 @@ cityrank=function(city,direction,riqi){
   return(p1)
 }
 
-#ÅÀÈ¡³ÇÊĞÇ¨ÈëÇ¨³ö¹æÄ£
+#çˆ¬å–åŸå¸‚è¿å…¥è¿å‡ºè§„æ¨¡
 migscale=function(city,direction){
   require(jsonlite)
   require(magrittr)
   require(dplyr)
   u1='http://huiyan.baidu.com/migration/historycurve.jsonp?dt=city&id='
   u2='&type=move_'
-  code=citycode$city_code[citycode$city==city] %>% .[1] %>% as.integer #ÌáÈ¡³ÇÊĞ´úÂë
+  code=citycode$city_code[citycode$city==city] %>% .[1] %>% as.integer #æå–åŸå¸‚ä»£ç 
   url=paste(u1,code,u2,direction,sep = '')
   tt=readLines(url)[2]
-  tt2=substr(tt,4,nchar(tt)-1)#ÒÔÉÏÈıĞĞ´¦Àífromjson²»ÄÜ¶ÁÈ¡µÄÎÊÌâ
+  tt2=substr(tt,4,nchar(tt)-1)#ä»¥ä¸Šä¸‰è¡Œå¤„ç†fromjsonä¸èƒ½è¯»å–çš„é—®é¢˜
   p1=fromJSON(tt2) %>% .[3] %>% unlist %>% as.data.frame
   p2=mutate(p1,date=row.names(p1) %>%
              gsub('data.list.','',.) %>%
@@ -33,7 +33,7 @@ migscale=function(city,direction){
   return(p2)
 }
 
-#ÅÀÈ¡Ê¡·İÇ¨Èë(³ö)Ç¨³ö±ÈÀı
+#çˆ¬å–çœä»½è¿å…¥(å‡º)è¿å‡ºæ¯”ä¾‹
 provrank=function(city,direction,riqi){
   require(jsonlite)
   require(magrittr)

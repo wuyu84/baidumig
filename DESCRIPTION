@@ -1,7 +1,7 @@
 Package: baidumig
 Type: Package
 Title: Crawl Baidu migration data
-Version: 1.0
+Version: 1.1
 Author: Wu Yu
 Maintainer: Wu Yu <wuyu@szcdc.net>
 Description:Crawl Baidu migration data
