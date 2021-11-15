@@ -17,12 +17,12 @@ cityrank=function(city,direction,riqi){
 migscale=function(city,direction){
   require(jsonlite)
   require(magrittr)
-  require(dplyr)
+  require(readr)
   u1='http://huiyan.baidu.com/migration/historycurve.jsonp?dt=city&id='
   u2='&type=move_'
   code=citycode$city_code[citycode$city==city] %>% .[1] %>% as.integer #提取城市代码
   url=paste(u1,code,u2,direction,sep = '')
-  tt=readLines(url)[2]
+  tt=read_lines(url)[2]
   tt2=substr(tt,4,nchar(tt)-1)#以上三行处理fromjson不能读取的问题
   p1=fromJSON(tt2) %>% .[3] %>% unlist %>% as.data.frame
   p2=mutate(p1,date=row.names(p1) %>%
